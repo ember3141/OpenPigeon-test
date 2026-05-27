@@ -11,7 +11,7 @@ var _max_delta := 0.0
 #---------------------------------------------
 
 var REPLAY_FRAME_DURATION: float = 0.03
-var CHARMAP = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@*()_+-.';"
+var CHARMAP = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@*()_+-.' ;"
 var CHARMAP_LEN = len(CHARMAP)
 const AvatarWinAnimScene := preload("res://global/avatar_textures/avatar_win_anim.tscn")
 const SETTINGS_POPUP_SCENE = preload("res://global/settings_popup.tscn")
@@ -93,7 +93,7 @@ const IOS_BALL_Y_AIM_OFFSET: float = 0.45
 const IOS_DRAG_DEAD_DIST: float = 0.18
 
 # Aim-assist lerp toward the nearest cup, matching the typical case
-@export var ios_aim_assist: float = 0.28
+@export var ios_aim_assist: float = 1
 # Screen-pixel -> world-meter conversion. Tune up for easier throws
 @export var ios_screen_to_world_scale: float = 0.0030
 
