@@ -1186,6 +1186,28 @@ func _on_settings_button_pressed() -> void:
 
 	settings_popup_script.setup_popup(dim)
 
+
+	var aim_assist_hbox := HBoxContainer.new()
+	var aim_assist_label := Label.new()
+	aim_assist_label.text = "Aim Assist:"
+	aim_assist_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	aim_assist_hbox.add_child(aim_assist_label)
+
+	var aim_assist_slider := HSlider.new()
+	aim_assist_slider.min_value = 0.0
+	aim_assist_slider.max_value = 1.0
+	aim_assist_slider.step = 0.05
+	aim_assist_slider.value = ios_aim_assist
+	aim_assist_slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	aim_assist_slider.custom_minimum_size = Vector2(150, 30)
+
+	aim_assist_slider.value_changed.connect(func(value: float):
+		ios_aim_assist = value
+	)
+
+	aim_assist_hbox.add_child(aim_assist_slider)
+	settings_popup_script.add_custom_setting(aim_assist_hbox)
+
 	#var volume_setting_hbox := HBoxContainer.new()
 	#volume_setting_hbox.add_child(Label.new())
 	#(volume_setting_hbox.get_child(0) as Label).text = "Game Volume:"
